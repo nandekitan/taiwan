@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+		<meta charset="utf-8">
+		<title>みうみうなんで行っ台湾</title>
+		<link rel="shortcut icon" href="miu.ico">
+		<link rel="icon" href="みうみうなんで行っ台湾.ico">
+		<link rel="stylesheet" href="みうみうなんで行っ台湾.css">
+	</head>
+	<body>
+		<div>
+			<span class="preview preview-indicator">みうみう</span>
+			<span class="preview preview-environment">なんで行っ台湾</span>
+		</div>
+
+		<div id="map"></div>
+		<div class="button" id="miu" title="みうみうの現在位置"><img src="みうみうなんで行っ台湾.png" height="32"></div>
+		<div class="button" id="current" title="あなたの現在位置"><span>◎</span></div>
+
+		<audio id="konamiumiu" src="みうみうなんで行っ台湾.mp3" preload="auto"></audio>
+
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+		<script src="//maps.googleapis.com/maps/api/js?v=3&amp;sensor=true&amp;libraries=visualization"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/mustache.js/0.8.1/mustache.min.js"></script>
+		<script src="//cdn.jsdelivr.net/sammy/0.7.4/sammy.min.js"></script>
+
+		<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.11.8/TweenLite.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.11.8/TimelineLite.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.11.8/easing/EasePack.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.11.8/plugins/CSSPlugin.min.js"></script>
+
+		<script src="みうみうなんで行っ台湾.js"></script>
+
+		<script id="template" type="x-tmpl-mustache">
+			<div class="tweets">
+				{{#hasNext}}
+				<div class="comment navigation">
+					<a class="navigation" href="#{{next}}">▲</a>
+				</div>
+				{{/hasNext}}
+				{{#tweets}}
+					<div class="comment">
+						<span class="time">{{time}}</span>
+						<a href="https://twitter.com/kazuhito_m/status/{{id}}" target="_blank">{{{text}}}</a>
+						{{#media}}
+						<div>
+							<img class="media" src="{{media}}" alt="*">
+						</div>
+						{{/media}}
+					</div>
+				{{/tweets}}
+				{{#hasPrev}}
+				<div class="comment navigation">
+					<a class="navigation" href="#{{prev}}">▼</a>
+				</div>
+				{{/hasPrev}}
+			</div>
+		</script>
+
+	</body>
+</html>
